@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  head
+    title Flash Cards
+  body
+    header
+      h1 Names Table
+    section#content
+      h2 Welcome, student!
+      table
+        tr
+          th First Name
+          th Last Name
+        each name in names
+          tr
+            td= name.firstName
+            td= name.lastName
+        
+    footer
+      p An app to help you study
