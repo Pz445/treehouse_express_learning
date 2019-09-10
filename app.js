@@ -1,6 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const names = [
   { firstName: "James", lastName: "Smith" },
@@ -18,6 +20,14 @@ app.get('/', (req, res) => {
 
 app.get('/cards', (req, res) => {
   res.render('card', { prompt: "Who is buried in Grant's tomb?" });
+});
+
+app.get('/hello', (req, res) => {
+  res.render('hello')
+});
+
+app.post('/hello', (req, res) => {
+  res.render('hello', { name: req.body.username });
 });
 
 app.get('/sandbox', (req, res) => {
